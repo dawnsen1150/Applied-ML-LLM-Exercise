@@ -44,7 +44,7 @@ df_initial = load_initial_data()
 
 # Sidebar
 with st.sidebar:
-    st.header("Data Info")
+    st.header("Metadata")
     st.write(f"**Total rows:** {len(df_initial)}")
     st.write(f"**Columns:** {', '.join(df_initial.columns.tolist())}")
 
