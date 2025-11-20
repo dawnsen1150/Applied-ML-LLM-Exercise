@@ -213,6 +213,7 @@ __marimo__/
 *.ipynb
 test.ipynb
 
-# Data files (large parquet files)
+# Data files (large parquet and CSV files)
 *.parquet
 data/*.parquet
+data/*.csv
