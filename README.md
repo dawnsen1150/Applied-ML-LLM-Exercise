@@ -50,12 +50,37 @@ MODEL_NAME=gpt-4o-mini
 
 ### For Ollama:
 
-```bash
-MODEL_TYPE=ollama
-OLLAMA_URL=http://localhost:11434/v1
-OLLAMA_API_KEY=ollama
-MODEL_NAME=gemma3:4b
-```
+1. First, pull the model you want to use by running in your terminal:
+
+   ```bash
+   ollama pull <model-name>
+   ```
+
+   For example:
+
+   ```bash
+   ollama pull gemma3:4b
+   ```
+
+2. Then, create a `.env` file with the following variables (use the same model name you pulled):
+
+   ```bash
+   MODEL_TYPE=ollama
+   OLLAMA_URL=http://localhost:11434/v1
+   OLLAMA_API_KEY=ollama
+   MODEL_NAME=<model-name>
+   ```
+
+   Example:
+
+   ```bash
+   MODEL_TYPE=ollama
+   OLLAMA_URL=http://localhost:11434/v1
+   OLLAMA_API_KEY=ollama
+   MODEL_NAME=gemma3:4b
+   ```
+
+   **Note:** Make sure Ollama is running on your local machine before using it.
 
 ## Usage
 
