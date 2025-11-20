@@ -122,9 +122,12 @@ else:
 
     df_results = st.session_state.df_results
 
-    # Display the full results with 4 columns
+    # Display results with specific columns: query_id, product_id, classification, reformulated_query
+    display_columns = ["query_id", "product_id", "classification", "reformulated_query"]
+    # Ensure all columns exist before displaying
+    available_columns = [col for col in display_columns if col in df_results.columns]
     st.dataframe(
-        df_results[["query", "product_title", "classification", "reformulated_query"]],
+        df_results[available_columns],
         use_container_width=True,
         hide_index=True,
     )
