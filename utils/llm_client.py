@@ -20,15 +20,7 @@ class LLMClient:
             return textwrap.dedent(f.read().strip())
 
     def classify(self, query, product_title):
-        """This function is used to classify the query as either 'Accurate' or 'Inaccurate' based on the product title.
-
-        Args:
-            query (str): The query to classify.
-            product_title (str): The product title to compare the query to.
-
-        Returns:
-            tuple: A tuple containing the classification and the reasoning.
-        """
+        """This function is used to classify the query as either 'Accurate' or 'Inaccurate' based on the product title."""
         human_message = (
             f"The query is: {query}\n"
             f"The product title is: {product_title}\n"
@@ -45,16 +37,7 @@ class LLMClient:
         return response.response, response.reasoning
 
     def reformulation(self, query, product_title, reasoning):
-        """This function is used to reformulate the user query when the original query and the product information do not match
-
-        Args:
-            query (str): The query to reformulate.
-            product_title (str): The product title to compare the query to.
-            reasoning (str): The reasoning explaining why the query is inaccurate.
-
-        Returns:
-            str: The reformulated query.
-        """
+        """This function is used to reformulate the user query when the original query and the product information do not match"""
         human_message = (
             f"Original Query: {query}\n"
             f"Product Title: {product_title}\n"

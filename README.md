@@ -38,15 +38,25 @@ A project for query classification and reformulation using LLMs (OpenAI or Ollam
 
 ## Configuration
 
-Create a `.env` file in the root directory with the following variables:
+1. Copy the example environment file to create your `.env` file:
+
+   ```bash
+   cp .env.example .env
+   ```
+
+2. Open the `.env` file and fill in your actual configuration values.
 
 ### For OpenAI:
 
+Edit your `.env` file and set:
+
 ```bash
 MODEL_TYPE=openai
-OPENAI_API_KEY=your-api-key-here
+OPENAI_API_KEY=your-actual-api-key-here
 MODEL_NAME=gpt-4o-mini
 ```
+
+Get your OpenAI API key from: https://platform.openai.com/api-keys
 
 ### For Ollama:
 
@@ -62,7 +72,7 @@ MODEL_NAME=gpt-4o-mini
    ollama pull gemma3:4b
    ```
 
-2. Then, create a `.env` file with the following variables (use the same model name you pulled):
+2. Then, edit your `.env` file and set (use the same model name you pulled):
 
    ```bash
    MODEL_TYPE=ollama
@@ -81,6 +91,8 @@ MODEL_NAME=gpt-4o-mini
    ```
 
    **Note:** Make sure Ollama is running on your local machine before using it.
+
+See `.env.example` for a complete list of all available configuration options with detailed comments.
 
 ## Usage
 
@@ -145,7 +157,7 @@ poetry run jupyter notebook
 
 ```
 .
-├── data/                          # Data files (parquet format)
+├── data/                          # Data files (csv format)
 ├── llm_prompt/                    # LLM prompt templates
 │   ├── classification_prompt.txt
 │   └── query_modification_prompt.txt
@@ -154,6 +166,7 @@ poetry run jupyter notebook
 │   ├── llm_client.py             # LLM client wrapper
 │   ├── openai_client.py          # OpenAI API client
 │   └── model.py                  # Data models
+├── .env.example                   # Example environment configuration file
 ├── main.py                        # Main Streamlit application
 ├── Makefile                       # Make commands for easy usage
 ├── pyproject.toml                # Poetry configuration

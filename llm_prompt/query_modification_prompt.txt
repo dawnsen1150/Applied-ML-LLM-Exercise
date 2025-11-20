@@ -53,7 +53,7 @@ Reformulated Query: wireless mouse 2.4ghz
 Explanation: Changed only "bluetooth" to "2.4ghz" to match the product. Did NOT add "USB Receiver" or "Wired Connection" details.
 
 -------------------------------------------------------------------------------------
-KEY POINTS TO REMEMBER:
+CRITICAL: KEY POINTS TO REMEMBER:
 - The reformulated query should look like a natural modification of the original query
 - Only change what contradicts the product information based on the reasoning
 - Never add information that wasn't in the original query
