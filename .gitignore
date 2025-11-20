@@ -213,6 +213,10 @@ __marimo__/
 *.ipynb
 test.ipynb
 
-# Data files (large parquet files)
+# Data files (large parquet and CSV files)
 *.parquet
 data/*.parquet
+# Ignore large CSV files (exceed GitHub 100MB limit)
+data/shopping_queries_dataset_examples.csv
+data/shopping_queries_dataset_products.csv
+# Allow small CSV files (like shopping_queries_dataset_exercise.csv)

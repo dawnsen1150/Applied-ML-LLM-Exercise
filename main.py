@@ -2,7 +2,7 @@ import pandas as pd
 import streamlit as st
 from dotenv import load_dotenv
 
-from utils.data_client import preprocess_data
+from utils.data_client import get_data
 from utils.llm_client import LLMClient
 
 # Load environment variables
@@ -36,7 +36,7 @@ status_placeholder = st.empty()
 @st.cache_data
 def load_initial_data():
     """Load and cache the initial preprocessed data"""
-    return preprocess_data()
+    return get_data()
 
 
 # Load initial dataframe
@@ -44,7 +44,7 @@ df_initial = load_initial_data()
 
 # Sidebar
 with st.sidebar:
-    st.header("Data Info")
+    st.header("Metadata")
     st.write(f"**Total rows:** {len(df_initial)}")
     st.write(f"**Columns:** {', '.join(df_initial.columns.tolist())}")
 
@@ -122,9 +122,12 @@ else:
 
     df_results = st.session_state.df_results
 
-    # Display the full results with 4 columns
+    # Display results with specific columns: query_id, product_id, classification, reformulated_query
+    display_columns = ["query_id", "product_id", "classification", "reformulated_query"]
+    # Ensure all columns exist before displaying
+    available_columns = [col for col in display_columns if col in df_results.columns]
     st.dataframe(
-        df_results[["query", "product_title", "classification", "reformulated_query"]],
+        df_results[available_columns],
         use_container_width=True,
         hide_index=True,
     )
