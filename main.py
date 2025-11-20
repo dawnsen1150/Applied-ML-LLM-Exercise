@@ -2,7 +2,7 @@ import pandas as pd
 import streamlit as st
 from dotenv import load_dotenv
 
-from utils.data_client import preprocess_data
+from utils.data_client import get_data
 from utils.llm_client import LLMClient
 
 # Load environment variables
@@ -36,7 +36,7 @@ status_placeholder = st.empty()
 @st.cache_data
 def load_initial_data():
     """Load and cache the initial preprocessed data"""
-    return preprocess_data()
+    return get_data()
 
 
 # Load initial dataframe
